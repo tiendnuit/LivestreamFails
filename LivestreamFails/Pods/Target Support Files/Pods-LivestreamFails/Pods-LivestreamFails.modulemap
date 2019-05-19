@@ -1,0 +1,6 @@
+framework module Pods_LivestreamFails {
+  umbrella header "Pods-LivestreamFails-umbrella.h"
+
+  export *
+  module * { export * }
+}
