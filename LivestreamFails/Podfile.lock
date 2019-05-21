@@ -1,7 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
   - Differentiator (3.1.0)
-  - DZNEmptyDataSet (1.8.1)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
@@ -18,17 +17,20 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.5.0)
+  - SDWebImage (5.0.3):
+    - SDWebImage/Core (= 5.0.3)
+  - SDWebImage/Core (5.0.3)
   - SnapKit (5.0.0)
   - SVProgressHUD (2.2.5)
   - SwiftSoup (2.0.0)
 
 DEPENDENCIES:
-  - DZNEmptyDataSet
   - Moya
   - R.swift
   - RxCocoa (~> 4.0)
   - RxDataSources
   - RxSwift (~> 4.0)
+  - SDWebImage
   - SnapKit
   - SVProgressHUD
   - SwiftSoup
@@ -37,7 +39,6 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Differentiator
-    - DZNEmptyDataSet
     - Moya
     - R.swift
     - R.swift.Library
@@ -45,6 +46,7 @@ SPEC REPOS:
     - RxCocoa
     - RxDataSources
     - RxSwift
+    - SDWebImage
     - SnapKit
     - SVProgressHUD
     - SwiftSoup
@@ -52,7 +54,6 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
@@ -60,10 +61,11 @@ SPEC CHECKSUMS:
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  SDWebImage: d4f87d7d36c8a4d9f9459dc282e0caa057fdf935
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftSoup: 4fe21f65cdbfa3a40559047016b7962b88d29279
 
-PODFILE CHECKSUM: 44437157cf0995284b848205d15d42cb397968fd
+PODFILE CHECKSUM: 672182f703a0c43df1a02d70fcba3edb0d045e46
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

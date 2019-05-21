@@ -16,14 +16,75 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.image` struct is generated, and contains static references to 3 images.
+  /// This `R.color` struct is generated, and contains static references to 3 colors.
+  struct color {
+    /// Color `LSBlack`.
+    static let lsBlack = Rswift.ColorResource(bundle: R.hostingBundle, name: "LSBlack")
+    /// Color `LSBrown`.
+    static let lsBrown = Rswift.ColorResource(bundle: R.hostingBundle, name: "LSBrown")
+    /// Color `LSOrange`.
+    static let lsOrange = Rswift.ColorResource(bundle: R.hostingBundle, name: "LSOrange")
+    
+    /// `UIColor(named: "LSBlack", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func lsBlack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.lsBlack, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "LSBrown", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func lsBrown(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.lsBrown, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "LSOrange", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func lsOrange(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.lsOrange, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.image` struct is generated, and contains static references to 17 images.
   struct image {
     /// Image `btn-back`.
     static let btnBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "btn-back")
     /// Image `first`.
     static let first = Rswift.ImageResource(bundle: R.hostingBundle, name: "first")
+    /// Image `icon-big-message`.
+    static let iconBigMessage = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon-big-message")
+    /// Image `icon-big-star`.
+    static let iconBigStar = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon-big-star")
+    /// Image `icon-checkmark`.
+    static let iconCheckmark = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon-checkmark")
+    /// Image `icon-message`.
+    static let iconMessage = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon-message")
+    /// Image `icon-more`.
+    static let iconMore = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon-more")
+    /// Image `icon-next`.
+    static let iconNext = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon-next")
+    /// Image `icon-rounded-star`.
+    static let iconRoundedStar = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon-rounded-star")
+    /// Image `icon-share`.
+    static let iconShare = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon-share")
+    /// Image `logo-night`.
+    static let logoNight = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo-night")
+    /// Image `logo`.
+    static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
     /// Image `second`.
     static let second = Rswift.ImageResource(bundle: R.hostingBundle, name: "second")
+    /// Image `tabbar-bell`.
+    static let tabbarBell = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar-bell")
+    /// Image `tabbar-circle-user`.
+    static let tabbarCircleUser = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar-circle-user")
+    /// Image `tabbar-search`.
+    static let tabbarSearch = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar-search")
+    /// Image `tabbar-video`.
+    static let tabbarVideo = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar-video")
     
     /// `UIImage(named: "btn-back", bundle: ..., traitCollection: ...)`
     static func btnBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -35,10 +96,134 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.first, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "icon-big-message", bundle: ..., traitCollection: ...)`
+    static func iconBigMessage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.iconBigMessage, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon-big-star", bundle: ..., traitCollection: ...)`
+    static func iconBigStar(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.iconBigStar, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon-checkmark", bundle: ..., traitCollection: ...)`
+    static func iconCheckmark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.iconCheckmark, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon-message", bundle: ..., traitCollection: ...)`
+    static func iconMessage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.iconMessage, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon-more", bundle: ..., traitCollection: ...)`
+    static func iconMore(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.iconMore, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon-next", bundle: ..., traitCollection: ...)`
+    static func iconNext(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.iconNext, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon-rounded-star", bundle: ..., traitCollection: ...)`
+    static func iconRoundedStar(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.iconRoundedStar, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon-share", bundle: ..., traitCollection: ...)`
+    static func iconShare(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.iconShare, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "logo", bundle: ..., traitCollection: ...)`
+    static func logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.logo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "logo-night", bundle: ..., traitCollection: ...)`
+    static func logoNight(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.logoNight, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "second", bundle: ..., traitCollection: ...)`
     static func second(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.second, compatibleWith: traitCollection)
     }
+    
+    /// `UIImage(named: "tabbar-bell", bundle: ..., traitCollection: ...)`
+    static func tabbarBell(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabbarBell, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tabbar-circle-user", bundle: ..., traitCollection: ...)`
+    static func tabbarCircleUser(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabbarCircleUser, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tabbar-search", bundle: ..., traitCollection: ...)`
+    static func tabbarSearch(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabbarSearch, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tabbar-video", bundle: ..., traitCollection: ...)`
+    static func tabbarVideo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabbarVideo, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  struct nib {
+    /// Nib `ChatTableViewCell`.
+    static let chatTableViewCell = _R.nib._ChatTableViewCell()
+    /// Nib `HomeVideoTableViewCell`.
+    static let homeVideoTableViewCell = _R.nib._HomeVideoTableViewCell()
+    /// Nib `StoryCollectionViewCell`.
+    static let storyCollectionViewCell = _R.nib._StoryCollectionViewCell()
+    
+    /// `UINib(name: "ChatTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.chatTableViewCell) instead")
+    static func chatTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.chatTableViewCell)
+    }
+    
+    /// `UINib(name: "HomeVideoTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.homeVideoTableViewCell) instead")
+    static func homeVideoTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.homeVideoTableViewCell)
+    }
+    
+    /// `UINib(name: "StoryCollectionViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.storyCollectionViewCell) instead")
+    static func storyCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.storyCollectionViewCell)
+    }
+    
+    static func chatTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ChatTableViewCell? {
+      return R.nib.chatTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ChatTableViewCell
+    }
+    
+    static func homeVideoTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> HomeVideoTableViewCell? {
+      return R.nib.homeVideoTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? HomeVideoTableViewCell
+    }
+    
+    static func storyCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> StoryCollectionViewCell? {
+      return R.nib.storyCollectionViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? StoryCollectionViewCell
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `ChatTableViewCell`.
+    static let chatTableViewCell: Rswift.ReuseIdentifier<ChatTableViewCell> = Rswift.ReuseIdentifier(identifier: "ChatTableViewCell")
+    /// Reuse identifier `HomeVideoTableViewCell`.
+    static let homeVideoTableViewCell: Rswift.ReuseIdentifier<HomeVideoTableViewCell> = Rswift.ReuseIdentifier(identifier: "HomeVideoTableViewCell")
+    /// Reuse identifier `StoryCollectionViewCell`.
+    static let storyCollectionViewCell: Rswift.ReuseIdentifier<StoryCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "StoryCollectionViewCell")
     
     fileprivate init() {}
   }
@@ -86,6 +271,81 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
+    try nib.validate()
+  }
+  
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _HomeVideoTableViewCell.validate()
+      try _StoryCollectionViewCell.validate()
+    }
+    
+    struct _ChatTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = ChatTableViewCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "ChatTableViewCell"
+      let name = "ChatTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ChatTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ChatTableViewCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _HomeVideoTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = HomeVideoTableViewCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "HomeVideoTableViewCell"
+      let name = "HomeVideoTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> HomeVideoTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? HomeVideoTableViewCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "icon-big-message", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon-big-message' is used in nib 'HomeVideoTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "icon-big-star", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon-big-star' is used in nib 'HomeVideoTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "icon-checkmark", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon-checkmark' is used in nib 'HomeVideoTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "icon-more", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon-more' is used in nib 'HomeVideoTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "icon-next", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon-next' is used in nib 'HomeVideoTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "icon-rounded-star", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon-rounded-star' is used in nib 'HomeVideoTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "icon-share", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon-share' is used in nib 'HomeVideoTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo' is used in nib 'HomeVideoTableViewCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "LSBlack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'LSBlack' is used in storyboard 'HomeVideoTableViewCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "LSBrown", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'LSBrown' is used in storyboard 'HomeVideoTableViewCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "LSOrange", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'LSOrange' is used in storyboard 'HomeVideoTableViewCell', but couldn't be loaded.") }
+        }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _StoryCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = StoryCollectionViewCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "StoryCollectionViewCell"
+      let name = "StoryCollectionViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> StoryCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? StoryCollectionViewCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo' is used in nib 'StoryCollectionViewCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "LSBlack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'LSBlack' is used in storyboard 'StoryCollectionViewCell', but couldn't be loaded.") }
+        }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    fileprivate init() {}
   }
   
   struct storyboard: Rswift.Validatable {
@@ -95,13 +355,23 @@ struct _R: Rswift.Validatable {
       try main.validate()
     }
     
-    struct home: Rswift.StoryboardResourceType, Rswift.Validatable {
+    struct home: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+      
       let bundle = R.hostingBundle
+      let homeViewController = StoryboardViewControllerResource<HomeViewController>(identifier: "HomeViewController")
       let name = "Home"
       
+      func homeViewController(_: Void = ()) -> HomeViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: homeViewController)
+      }
+      
       static func validate() throws {
+        if UIKit.UIImage(named: "tabbar-video", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-video' is used in storyboard 'Home', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "LSBlack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'LSBlack' is used in storyboard 'Home', but couldn't be loaded.") }
         }
+        if _R.storyboard.home().homeViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'homeViewController' could not be loaded from storyboard 'Home' as 'HomeViewController'.") }
       }
       
       fileprivate init() {}
@@ -128,9 +398,11 @@ struct _R: Rswift.Validatable {
       let name = "Main"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "first", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'first' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "second", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'second' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tabbar-bell", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-bell' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tabbar-circle-user", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-circle-user' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tabbar-search", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-search' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "LSBlack", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'LSBlack' is used in storyboard 'Main', but couldn't be loaded.") }
         }
       }
       

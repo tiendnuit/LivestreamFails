@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "42E37939E29D9E816584E0CE3D5B38C1"
+               BlueprintIdentifier = "CE5CFAF065BB4F6CDFC91B13D3A7B0E0"
                BuildableName = "Pods_LivestreamFailsTests.framework"
                BlueprintName = "Pods-LivestreamFailsTests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "42E37939E29D9E816584E0CE3D5B38C1"
+            BlueprintIdentifier = "CE5CFAF065BB4F6CDFC91B13D3A7B0E0"
             BuildableName = "Pods_LivestreamFailsTests.framework"
             BlueprintName = "Pods-LivestreamFailsTests"
             ReferencedContainer = "container:Pods.xcodeproj">

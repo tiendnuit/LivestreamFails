@@ -10,22 +10,17 @@ import Foundation
 import UIKit
 
 protocol VideoPostPresentable {
-    var departCodeLabel: UILabel! {set get}
-    var departTimeLabel: UILabel! {set get}
-    var arrivalCodeLabel: UILabel! {set get}
-    var arrivalTimeLabel: UILabel! {set get}
+    var titleLabel: UILabel! {set get}
+    var timeLabel: UILabel! {set get}
+    var scoreLabel: UILabel! {set get}
 }
 
 extension VideoPostPresentable {
     func map(post: VideoPost?) {
-        guard let flight = flight else { return }
+        guard let post = post else { return }
+        titleLabel.text = post.title
+        timeLabel.text = post.time
+        scoreLabel.text = post.score
         
-        flightNoLabel.textColor = UIColor.BodaColors.green
-        flightNoLabel.text = "\(flight.number)"
-        durationLabel.text = flight.duration
-        departCodeLabel.text = flight.departureCode
-        arrivalCodeLabel.text = flight.arrivalCode
-        departTimeLabel.text = flight.departureTime?.toString(dateFormat: "hh:mma")
-        arrivalTimeLabel.text = flight.arrivalTime?.toString(dateFormat: "hh:mma")
     }
 }

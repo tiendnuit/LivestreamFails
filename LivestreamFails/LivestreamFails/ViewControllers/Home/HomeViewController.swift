@@ -12,21 +12,19 @@ import SVProgressHUD
 import RxSwift
 import RxCocoa
 
-class HomeViewController: BaseViewController {
+class HomeViewController: BaseViewController, UIViewControllerConfigurable {
     @IBOutlet weak var tableView: UITableView!
-    var viewModel: AirportSchedulesViewModel!
-    var dataSource: RxTableViewSectionedReloadDataSource<ScheduleSection>!
+    @IBOutlet weak var collectionView: UICollectionView!
+    let viewModel = HomeVideosViewModel()
     
-    private let headerIdentifier = "ScheduleHeaderIdentifier"
-    private var selectedSchedule: Schedule?
     //MARK: - View cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        setupComponents()
         bindViewModel()
-        updateUI()
-        getSchedules()
+        getVideos()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,54 +43,50 @@ class HomeViewController: BaseViewController {
                 self.fetchFirstPage()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
+        
+        if let currentCell = tableView.visibleCells.first as? HomeVideoTableViewCell {
+            currentCell.play()
+        }
+        
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = R.segue.airportSchedulesViewController.toDetail(segue: segue)?.destination, let selectedSchedule = selectedSchedule {
-            vc.schedule = selectedSchedule
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let currentCell = tableView.visibleCells.first as? HomeVideoTableViewCell {
+            currentCell.pause()
         }
     }
     
     //MARK: -
-    override func setupComponents() {
-        //Navigations
-        title = "\(viewModel.scheduleTitle)"
-        addCloseButton()
+    func setupComponents() {
+        //CollectionView
+        collectionView.register(R.nib.storyCollectionViewCell)
+        let stories = [Story(username: "Feed", avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxfXSnqYim1H9d4fZLrltirKtQJ45MsHxqICOLZhhmRwuIlRCKmg"),
+                        Story(username: "Contest", avatar: "https://thumbs.dreamstime.com/z/cartoon-monster-face-vector-halloween-green-tired-cool-monster-avatar-great-print-97162970.jpg"),
+                        Story(username: "Ninja", avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi7FNgSVC2okWs910NZloOsw8tcMbq_bAjn0dtPgccj5sZomCbow"),
+                        Story(username: "David", avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKSBpx74RmQFv3bD59In2AKhxdkN95S3cy3SF8x44sYlfEl2PIJg"),
+                        Story(username: "pokimane", avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQTvO1vI-BtVqHAG_Ccpfjob8bVc8xiVuKOcjiF1Jh1sh0TCjd"),
+                        Story(username: "DrLupo", avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp3k7abEQyWIEb7t6QN0ZHvy4hvA9pc-PNtC9jMWrgHFUBKpUi"),
+                        Story(username: "King", avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg6ZqSDwUEaSOpe5DKE80mom1uxLUCeHwLL-aNP8RhYKHKwRjPAA")]
+        Observable.just(stories).asDriverOnErrorJustComplete().drive(self.collectionView.rx.items) { (collectionView, row, element) in
+            let indexPath = IndexPath(row: row, section: 0)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.storyCollectionViewCell.identifier, for: indexPath) as! StoryCollectionViewCell
+            cell.configure(item: element)
+            return cell
+        }.disposed(by: disposeBag)
         
         //TableView
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
-        tableView.register(R.nib.airportScheduleTableViewCell)
-        tableView.register(UINib(resource: R.nib.scheduleHeaderView), forHeaderFooterViewReuseIdentifier: headerIdentifier)
+        tableView.register(R.nib.homeVideoTableViewCell)
         tableView.dataSource = nil
         tableView.delegate = self
-        tableView.rowHeight = 100
         
-        dataSource = RxTableViewSectionedReloadDataSource<ScheduleSection>(configureCell: { (ds, tbv, indexPath, item) -> AirportScheduleTableViewCell in
-            let cell = tbv.dequeueReusableCell(withIdentifier: R.reuseIdentifier.airportScheduleTableViewCell, for: indexPath)!
-            cell.selectionStyle = .none
-            cell.configure(item: item)
-            return cell
-        })
-        
-        dataSource.titleForHeaderInSection = { ds, index in
-            return ds.sectionModels[index].header
-        }
-        
-        //
-        //Selected cell
-        tableView.rx.itemSelected
-            .subscribe(onNext: { [weak self] indexPath in
-                guard let `self` = self else { return }
-                self.selectedSchedule = self.viewModel.schedule(at: indexPath.section)
-                self.performSegue(withIdentifier: R.segue.airportSchedulesViewController.toDetail, sender: nil)
-            }).disposed(by: disposeBag)
-        
-        //Reach bottom
         tableView.rx.willDisplayCell
             .subscribe(onNext: { [weak self] cellInfo in
                 guard let `self` = self else { return }
-                let (_, indexPath) = cellInfo
+                let (cell, indexPath) = cellInfo
+                if let videoCell = cell as? HomeVideoTableViewCell {
+                    videoCell.play()
+                }
                 
                 if self.viewModel.canLoadMore(with: indexPath) {
                     let spinner = UIActivityIndicatorView(style: .gray)
@@ -106,30 +100,42 @@ class HomeViewController: BaseViewController {
                     let label = UILabel(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: self.tableView.bounds.width, height: CGFloat(44)))
                     label.text = "You’re all caught up!"
                     label.textAlignment = .center
-                    label.textColor = UIColor.BodaColors.lightGrayLine
-                    label.font = UIFont.BodaFonts.regS11
+                    label.textColor = UIColor.white
+                    label.font = UIFont.LSFonts.regS11
                     self.tableView.tableFooterView = label
                     self.tableView.tableFooterView?.isHidden = false
                 }
             })
             .disposed(by: disposeBag)
+        
+        tableView.rx.didEndDisplayingCell.subscribe(onNext: { cellInfo in
+            let (cell, _) = cellInfo
+            guard let videoCell = cell as? HomeVideoTableViewCell else { return }
+            videoCell.stop()
+            
+        }).disposed(by: disposeBag)
     }
     
-    override func bindViewModel() {
-        let loadSchedulesTrigger = rx.sentMessage(#selector(AirportSchedulesViewController.getSchedules))
+    func bindViewModel() {
+        let videosTrigger = rx.sentMessage(#selector(getVideos))
             .mapToVoid()
             .asDriverOnErrorJustComplete()
         
-        let input = AirportSchedulesViewModel.Input(loadSchedulesTrigger: loadSchedulesTrigger)
+        let input = HomeVideosViewModel.Input(loadVideosTrigger: videosTrigger)
         let output = viewModel.transform(input: input)
         
         //Update tableview
-        output.dataSource.drive(tableView.rx.items(dataSource: dataSource))
-            .disposed(by: disposeBag)
+        output.dataSource.drive(tableView.rx.items) { tableView, row, item in
+            let indexPath = IndexPath(row: row, section: 0)
+            let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.homeVideoTableViewCell, for: indexPath) as HomeVideoTableViewCell?
+            cell?.selectionStyle = .none
+            cell?.configure(item: item)
+            return cell!
+            }.disposed(by: disposeBag)
         
         //API error
         output.error.drive(onNext: { (error) in
-            UIAlertController.presentOKAlertWithTitle(BodaError.ERROR_TITLE, message: error.localizedDescription)
+            UIAlertController.presentOKAlertWithTitle(LSFailsError.ERROR_TITLE, message: error.localizedDescription)
         }, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
         
@@ -143,20 +149,20 @@ class HomeViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    override func updateUI() {
+    func updateUI() {
         
     }
     
     func fetchFirstPage() {
-        self.viewModel.reset()
-        self.getSchedules()
+        viewModel.reset()
+        getVideos()
     }
     
     private func fetchNextPage() {
-        self.getSchedules()
+        self.getVideos()
     }
     
-    @objc dynamic func getSchedules() {
+    @objc dynamic func getVideos() {
         if let refreshControl = tableView.refreshControl {
             refreshControl.beginRefreshing()
         } else {
@@ -165,38 +171,9 @@ class HomeViewController: BaseViewController {
     }
 }
 
-//MARK: - UITableViewDelegate
-extension AirportSchedulesViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if let header = view as? UITableViewHeaderFooterView {
-            header.backgroundView?.backgroundColor = UIColor.white
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let schedule = viewModel.schedule(at: section)
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerIdentifier) as! ScheduleHeaderView
-        headerView.configure(item: schedule)
-        
-        return headerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
-}
-
-// MARK: - DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
-extension AirportSchedulesViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = "No flights available"
-        let paragraph = NSMutableParagraphStyle()
-        paragraph.lineBreakMode = .byWordWrapping
-        paragraph.alignment = .center
-        let textFont = UIFont.BodaFonts.semiBoldS18
-        let attributes = [NSAttributedString.Key.font: textFont,
-                          NSAttributedString.Key.foregroundColor: UIColor.BodaColors.bodaTitle,
-                          NSAttributedString.Key.paragraphStyle: paragraph]
-        return NSAttributedString(string: text, attributes: attributes)
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let size = tableView.bounds.size
+        return size.height
     }
 }

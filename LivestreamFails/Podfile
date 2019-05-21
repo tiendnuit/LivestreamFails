@@ -13,8 +13,8 @@ target 'LivestreamFails' do
   pod 'SVProgressHUD'
   pod 'SnapKit'
   pod 'RxDataSources'
-  pod 'DZNEmptyDataSet'
   pod 'SwiftSoup'
+  pod 'SDWebImage'
   
   target 'LivestreamFailsTests' do
     inherit! :search_paths

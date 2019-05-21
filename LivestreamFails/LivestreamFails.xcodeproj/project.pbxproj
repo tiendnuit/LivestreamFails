@@ -43,6 +43,13 @@
 		A66E39B4228A54830042AD64 /* ObservableType+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E39B3228A54830042AD64 /* ObservableType+Utility.swift */; };
 		A66E39B6228A54CC0042AD64 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E39B5228A54CC0042AD64 /* BaseViewController.swift */; };
 		A66E39B9228A55640042AD64 /* VideoPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E39B8228A55640042AD64 /* VideoPost.swift */; };
+		A6A35B812294734900018E44 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A35B802294734900018E44 /* ChatTableViewCell.swift */; };
+		A6A35B83229473B600018E44 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A35B82229473B600018E44 /* ChatTableViewCell.xib */; };
+		A6A35B852294762C00018E44 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A35B842294762C00018E44 /* Message.swift */; };
+		A6A35B8822947E4300018E44 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A35B8722947E4300018E44 /* PlayerView.swift */; };
+		A6A35B8A2294909C00018E44 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A35B892294909C00018E44 /* StoryCollectionViewCell.swift */; };
+		A6A35B8C229490E800018E44 /* StoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A35B8B229490E800018E44 /* StoryCollectionViewCell.xib */; };
+		A6A35B8E2294958F00018E44 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A35B8D2294958F00018E44 /* Story.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +116,13 @@
 		A66E39B3228A54830042AD64 /* ObservableType+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Utility.swift"; sourceTree = "<group>"; };
 		A66E39B5228A54CC0042AD64 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A66E39B8228A55640042AD64 /* VideoPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPost.swift; sourceTree = "<group>"; };
+		A6A35B802294734900018E44 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		A6A35B82229473B600018E44 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
+		A6A35B842294762C00018E44 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A6A35B8722947E4300018E44 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		A6A35B892294909C00018E44 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		A6A35B8B229490E800018E44 /* StoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		A6A35B8D2294958F00018E44 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		DAA5F3E8D3C5F1344739246F /* Pods-LivestreamFailsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LivestreamFailsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LivestreamFailsTests/Pods-LivestreamFailsTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB3E594FF3818CE6DFAE5B0C /* Pods-LivestreamFailsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LivestreamFailsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LivestreamFailsUITests/Pods-LivestreamFailsUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -274,6 +288,8 @@
 		A66E3993228A50310042AD64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A6A35B8622947E3900018E44 /* Custom */,
+				A6A35B7F229471D500018E44 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -283,6 +299,8 @@
 			children = (
 				A66E39B8228A55640042AD64 /* VideoPost.swift */,
 				A617AAAC2291F211002F22CC /* PaginationInfo.swift */,
+				A6A35B842294762C00018E44 /* Message.swift */,
+				A6A35B8D2294958F00018E44 /* Story.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -355,6 +373,25 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		A6A35B7F229471D500018E44 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A6A35B802294734900018E44 /* ChatTableViewCell.swift */,
+				A6A35B82229473B600018E44 /* ChatTableViewCell.xib */,
+				A6A35B892294909C00018E44 /* StoryCollectionViewCell.swift */,
+				A6A35B8B229490E800018E44 /* StoryCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A6A35B8622947E3900018E44 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				A6A35B8722947E4300018E44 /* PlayerView.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -363,11 +400,11 @@
 			buildConfigurationList = A66E3987228A4FE70042AD64 /* Build configuration list for PBXNativeTarget "LivestreamFails" */;
 			buildPhases = (
 				9DA38612C17CFE5B0BC3AE54 /* [CP] Check Pods Manifest.lock */,
+				A617AAA22291EAC0002F22CC /* ShellScript */,
 				A66E3959228A4FE50042AD64 /* Sources */,
 				A66E395A228A4FE50042AD64 /* Frameworks */,
 				A66E395B228A4FE50042AD64 /* Resources */,
 				6D346E864A6D7CEE801D28DD /* [CP] Embed Pods Frameworks */,
-				A617AAA22291EAC0002F22CC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -468,7 +505,9 @@
 				A66E396A228A4FE70042AD64 /* Assets.xcassets in Resources */,
 				A617AAB62291F929002F22CC /* HomeVideoTableViewCell.xib in Resources */,
 				A617AAB82291F987002F22CC /* Colors.xcassets in Resources */,
+				A6A35B8C229490E800018E44 /* StoryCollectionViewCell.xib in Resources */,
 				A66E3968228A4FE50042AD64 /* Main.storyboard in Resources */,
+				A6A35B83229473B600018E44 /* ChatTableViewCell.xib in Resources */,
 				A66E39A0228A52F40042AD64 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,9 +553,8 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LivestreamFails/Pods-LivestreamFails-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-LivestreamFails/Pods-LivestreamFails-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
@@ -524,6 +562,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
@@ -531,7 +570,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
@@ -539,13 +577,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LivestreamFails/Pods-LivestreamFails-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LivestreamFails/Pods-LivestreamFails-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		914E96E1E4A4B3255C9A61C3 /* [CP] Check Pods Manifest.lock */ = {
@@ -597,7 +636,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/R.generated.swift,
+				"$SRCROOT/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -620,7 +659,9 @@
 				A617AAB12291F73D002F22CC /* Configurable.swift in Sources */,
 				A66E39A4228A536D0042AD64 /* UIViewController+Utility.swift in Sources */,
 				A617AAA82291EC08002F22CC /* R.generated.swift in Sources */,
+				A6A35B8A2294909C00018E44 /* StoryCollectionViewCell.swift in Sources */,
 				A66E39B0228A546B0042AD64 /* UIView+IBInspectables.swift in Sources */,
+				A6A35B812294734900018E44 /* ChatTableViewCell.swift in Sources */,
 				A66E39AC228A54420042AD64 /* UIFont+Utility.swift in Sources */,
 				A617AAA42291EB9F002F22CC /* HTMLParser.swift in Sources */,
 				A66E39A2228A53480042AD64 /* HomeViewController.swift in Sources */,
@@ -630,11 +671,14 @@
 				A617AAAB2291F1C9002F22CC /* HomeVideosViewModel.swift in Sources */,
 				A66E39A6228A53DD0042AD64 /* Logger.swift in Sources */,
 				A617AAAF2291F6E3002F22CC /* HomeVideoTableViewCell.swift in Sources */,
+				A6A35B852294762C00018E44 /* Message.swift in Sources */,
 				A66E39B4228A54830042AD64 /* ObservableType+Utility.swift in Sources */,
+				A6A35B8822947E4300018E44 /* PlayerView.swift in Sources */,
 				A66E39B6228A54CC0042AD64 /* BaseViewController.swift in Sources */,
 				A66E39A8228A54050042AD64 /* ViewModelType.swift in Sources */,
 				A66E39AA228A541E0042AD64 /* ErrorTracker.swift in Sources */,
 				A617AAAD2291F211002F22CC /* PaginationInfo.swift in Sources */,
+				A6A35B8E2294958F00018E44 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,6 +27,11 @@ final class HomeVideosViewModel: ViewModelType {
                     .trackActivity(activityIndicator)
                     .trackError(errorTracker)
                     .asDriverOnErrorJustComplete()
+            }.flatMap { (videos) -> SharedSequence<DriverSharingStrategy, [VideoPost]> in
+                self.reachedBottom = videos.isEmpty
+                self.videos.append(contentsOf: videos)
+                return Observable.just(self.videos)
+                    .asDriverOnErrorJustComplete()
         }
         
         
@@ -57,6 +62,7 @@ final class HomeVideosViewModel: ViewModelType {
                 do {
                     let response = try result.get()
                     let posts = try response.mapPosts()
+                    self.paginationInfo.page += 1
                     observer.onNext(posts)
                     observer.onCompleted()
                 } catch let error {
