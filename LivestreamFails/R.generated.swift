@@ -398,6 +398,7 @@ struct _R: Rswift.Validatable {
       let name = "Main"
       
       static func validate() throws {
+        if UIKit.UIImage(named: "icon-big-star", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon-big-star' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar-bell", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-bell' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar-circle-user", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-circle-user' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar-search", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-search' is used in storyboard 'Main', but couldn't be loaded.") }

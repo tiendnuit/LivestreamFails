@@ -18,7 +18,31 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEN-nj-jlI" customClass="LikeButton" customModule="LivestreamFails" customModuleProvider="target">
+                                <rect key="frame" x="177" y="418" width="60" height="60"/>
+                                <state key="normal" image="icon-big-star"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="animationColor">
+                                        <color key="value" red="0.035294117649999998" green="0.84705882349999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxRadiusRate">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="likeButtonClicked:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="v0q-fa-bCG"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" name="LSBlack"/>
+                        <constraints>
+                            <constraint firstItem="BEN-nj-jlI" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="Zmh-2w-mCS"/>
+                            <constraint firstItem="BEN-nj-jlI" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="h3x-GE-A1Q"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tabbar-search" id="cPa-gy-q4n"/>
@@ -91,6 +115,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-big-star" width="60" height="60"/>
         <image name="tabbar-bell" width="30" height="30"/>
         <image name="tabbar-circle-user" width="30" height="30"/>
         <image name="tabbar-search" width="30" height="30"/>

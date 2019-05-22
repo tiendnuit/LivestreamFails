@@ -20,7 +20,7 @@ struct VideoPost {
     let time: String?
     let streamerName: String?
     let gameName: String?
-    
+    var like = 0
     
     init?(element: Element) {
         guard let id = try? element.attr("id"),

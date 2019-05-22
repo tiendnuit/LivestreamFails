@@ -10,6 +10,7 @@
 		216D7338F32EB22191B0854C /* Pods_LivestreamFails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88316329ACF63AEE6E0B9E59 /* Pods_LivestreamFails.framework */; };
 		230B4734693F6D931F2B81A2 /* Pods_LivestreamFailsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA14CFC7AE26237DBC284A1 /* Pods_LivestreamFailsTests.framework */; };
 		68FE4599B8D8FB44130664C3 /* Pods_LivestreamFailsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854BB15AF176CF332B5F8B3F /* Pods_LivestreamFailsUITests.framework */; };
+		A61398942295151400860952 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61398932295151400860952 /* LikeButton.swift */; };
 		A617AAA42291EB9F002F22CC /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A617AAA32291EB9F002F22CC /* HTMLParser.swift */; };
 		A617AAA62291EBC7002F22CC /* LSFailsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A617AAA52291EBC7002F22CC /* LSFailsError.swift */; };
 		A617AAA82291EC08002F22CC /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A617AAA72291EC08002F22CC /* R.generated.swift */; };
@@ -77,6 +78,7 @@
 		88316329ACF63AEE6E0B9E59 /* Pods_LivestreamFails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LivestreamFails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8952A89AB44792B9FB6A27FF /* Pods-LivestreamFailsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LivestreamFailsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LivestreamFailsTests/Pods-LivestreamFailsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8DA14CFC7AE26237DBC284A1 /* Pods_LivestreamFailsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LivestreamFailsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A61398932295151400860952 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		A617AAA32291EB9F002F22CC /* HTMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		A617AAA52291EBC7002F22CC /* LSFailsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSFailsError.swift; sourceTree = "<group>"; };
 		A617AAA72291EC08002F22CC /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -388,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				A6A35B8722947E4300018E44 /* PlayerView.swift */,
+				A61398932295151400860952 /* LikeButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -636,7 +639,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -664,6 +667,7 @@
 				A6A35B812294734900018E44 /* ChatTableViewCell.swift in Sources */,
 				A66E39AC228A54420042AD64 /* UIFont+Utility.swift in Sources */,
 				A617AAA42291EB9F002F22CC /* HTMLParser.swift in Sources */,
+				A61398942295151400860952 /* LikeButton.swift in Sources */,
 				A66E39A2228A53480042AD64 /* HomeViewController.swift in Sources */,
 				A66E39B2228A54780042AD64 /* ObservableType+Tracker.swift in Sources */,
 				A617AAA62291EBC7002F22CC /* LSFailsError.swift in Sources */,

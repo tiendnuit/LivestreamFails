@@ -19,11 +19,13 @@ class HomeVideoTableViewCell: UITableViewCell, Configurable, VideoPostPresentabl
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var playerView: PlayerView!
+    @IBOutlet weak var likeButton: LikeButton!
     
     
     let disposeBag = DisposeBag()
     var results = Variable<[Message]>([])
-
+    var video: VideoPost?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -46,6 +48,7 @@ class HomeVideoTableViewCell: UITableViewCell, Configurable, VideoPostPresentabl
 
     func configure(item: Any) {
         guard let item = item as? VideoPost else { return }
+        video = item
         map(post: item)
         let messages = [Message(username: "drg5", content: "just like this 100times"),
                         Message(username: "ninja", content: "😀 😀 😀 😀 😀 😀"),
@@ -77,4 +80,11 @@ class HomeVideoTableViewCell: UITableViewCell, Configurable, VideoPostPresentabl
     func pause() {
         playerView.player?.pause()
     }
+    
+    @IBAction func likeButtonClicked(_ sender: Any) {
+        video?.like += 1
+        let likes = video?.like ?? 0
+        likeButton.animatedFloatLabel(count: likes)
+    }
+    
 }

@@ -266,13 +266,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="p88-7G-sOb">
                                         <rect key="frame" x="323.5" y="0.0" width="58.5" height="80"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRB-gR-EEH">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRB-gR-EEH" customClass="LikeButton" customModule="LivestreamFails" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="58.5" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="f0L-39-tsB"/>
                                                     <constraint firstAttribute="width" constant="58.5" id="uih-WX-wBp"/>
                                                 </constraints>
                                                 <state key="normal" image="icon-big-star"/>
+                                                <connections>
+                                                    <action selector="likeButtonClicked:" destination="F6d-mG-31h" eventType="touchUpInside" id="yVZ-Xq-gjS"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="12.7K" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaU-8D-KT1">
                                                 <rect key="frame" x="0.0" y="65" width="58.5" height="15"/>
@@ -319,6 +322,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.20000000000000001" green="0.20784313725490194" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
+                <outlet property="likeButton" destination="cRB-gR-EEH" id="yCz-uj-SH3"/>
                 <outlet property="playerView" destination="GMY-PF-4vy" id="l36-iJ-agF"/>
                 <outlet property="scoreLabel" destination="nYU-5u-1El" id="hWS-2W-6e8"/>
                 <outlet property="tableView" destination="bPd-3u-7aj" id="kq9-gA-RZX"/>
